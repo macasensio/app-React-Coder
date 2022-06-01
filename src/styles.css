@@ -1,0 +1,13 @@
+body {
+    margin :0;
+    padding: 0;
+    background-color: aquamarine;
+}
+
+header a, nav a {
+    margin: 0 20px;
+}
+
+footer p, nav, h1 {
+    display: inline-block;
+}
