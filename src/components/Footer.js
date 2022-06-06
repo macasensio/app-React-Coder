@@ -4,7 +4,7 @@ const Footer = () => {
     return (
         <footer>
             <p>CoderHouse &copy;</p>
-            <NavBar />
+            <NavBar inHeader={false} />
         </footer>
     )
 }

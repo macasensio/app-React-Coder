@@ -1,24 +1,15 @@
 import NavBar from "./NavBar"
+import ItemListContainer from "./ItemListContainer";
 
-const Header = () => {
+const Header = (props) => {
+    console.log(props)
 
-    const User = true;
-
-    if(!User){
-        return (
-            <header>
-                <h1>Título</h1> 
-                <NavBar />           
-            </header>
-        )
-    } else {
-        return (
-            <header>
-                <h1>Titulo</h1>
-                <a href="#">Iniciar sesión</a>        
-            </header>
-        )
-    }    
+    return (
+        <header>
+            <h1>Mi Comercio</h1>
+            <NavBar inHeader={true}/>
+        </header>
+    )
 
 }
 
