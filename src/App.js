@@ -14,7 +14,7 @@ import Main from './components/Main'
 
 //fragmento: es una etiqueta que no tiene nombre. Nos permite encapsular muchas etiquetas. En el DOM no se ve.
 const App = () => {
-    const nombre = prompt('Hola! ¿cuál es tu nombre?');
+    //const nombre = prompt('Hola! ¿cuál es tu nombre?');
     return (
         <>
             <Header
@@ -23,7 +23,7 @@ const App = () => {
             />
             <ItemListContainer
                 greeting="Bienvenid@" 
-                nombre={nombre} 
+                nombre="{nombre}" 
             />
             <Main />
             <Footer />

@@ -1,7 +1,8 @@
 const Main = () => {
+
     return (
         <main>
-            <p>Main</p>
+            <p>Main</p>            
         </main>
     )
 }

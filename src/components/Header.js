@@ -1,13 +1,12 @@
 import NavBar from "./NavBar"
-import ItemListContainer from "./ItemListContainer";
 
 const Header = (props) => {
     console.log(props)
 
     return (
         <header>
-            <h1>Mi Comercio</h1>
-            <NavBar inHeader={true}/>
+            <h1>Mi Comercio <span class="material-symbols-outlined">home</span></h1>
+            <NavBar inHeader={true} laClase="navbar-header"/>
         </header>
     )
 

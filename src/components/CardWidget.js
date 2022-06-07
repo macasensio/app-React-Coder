@@ -1,6 +1,7 @@
-const CardWidget = () => {
+const CardWidget = ({cantProductosCarrito}) => {
+
     return (
-        <span className="material-symbols-outlined">shopping_cart</span>
+        <a><span className="material-symbols-outlined">shopping_cart</span>{cantProductosCarrito}</a>
     )
 }
 
