@@ -1,4 +1,5 @@
 import {useState} from 'react'
+import producto1 from '../assets/producto1.jpg'
 
 const ItemCount = ({stock, initial, onAdd}) => {
     //el useState() siempre da un array
@@ -10,13 +11,14 @@ const ItemCount = ({stock, initial, onAdd}) => {
     //resultado es la variable donde guardamos nuestro estado, es el estado inicial
     
 
-    //haciendo destructuring, en una línea queda así:
-    //const [contadorProducto, setContador] = useState(0)
+    
 
     // ------------  STATE PRODUCTO  ------------
-    const stateProducto = useState(initial)
-    const contadorProducto = stateProducto[0] //mi estado
-    const setContadorProducto = stateProducto[1] //función que me permite cambiar el estado
+    //haciendo destructuring, en una línea queda así:
+    const [contadorProducto, setContadorProducto] = useState(initial)
+    //const stateProducto = useState(initial)
+    //const contadorProducto = stateProducto[0] //mi estado
+    //const setContadorProducto = stateProducto[1] //función que me permite cambiar el estado
 
     const aumentarContador = () => {
         if (contadorProducto < stock) {
@@ -32,9 +34,10 @@ const ItemCount = ({stock, initial, onAdd}) => {
     }
 
     // ------------  STATE STOCK ------------
-    const stateStock = useState(stock)
-    const contadorStock = stateStock[0]
-    const setContadorStock = stateStock[1]
+    const [contadorStock, setContadorStock] = useState(stock)
+    //const stateStock = useState(stock)
+    //const contadorStock = stateStock[0]
+    //const setContadorStock = stateStock[1]
 
     const reducirStock = () => {
         if (contadorStock > 0) {
@@ -51,11 +54,15 @@ const ItemCount = ({stock, initial, onAdd}) => {
     // ------------  AGREGAR AL CARRITO ------------
     const agregarAlCarrito = () => {
         alert('Cantidad de productos añadidos al carrito: '+ contadorProducto);
+        //onAdd(contadorProducto)
     }
 
 
     return (
         <div id="producto">
+            <h3>Producto</h3>
+            <img src={producto1} alt="producto 1" width="250" />
+            <p>Precio: $670</p>
             <p>Stock disponible: {contadorStock}</p>
             <p>Cantidad de producto seleccionado: {contadorProducto}</p>
             <button onClick={aumentarContador}><span className="material-symbols-outlined">add</span></button>
