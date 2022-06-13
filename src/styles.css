@@ -23,7 +23,8 @@ header a, nav a {
     display: inline-block;
 }
 
-#greeting{
+#greeting, .cargaProductos {
+    padding-top: 20px;
     font-style: italic;
     color:#546de5;
 }
@@ -43,11 +44,11 @@ button:hover {
     color: #FFFFFF;
     cursor: pointer;
 }
-button:last-child {
-    padding: 7px;
+button {
+    height: 35px;
 }
 
-#producto{
+.producto{
     display: inline-block;
     background-color: #778beb;
     padding: 10px 50px;
@@ -55,7 +56,12 @@ button:last-child {
     box-shadow: #303952 4px 8px;
     color: #FFFFFF;
     border-radius: 5px;
+    margin: 0px 50px 50px 50px;
 }
+#botones{
+    margin-bottom: 20px;
+}
+
 img {
     border: solid 2px #596275;
     box-shadow: #303952 2px 4px;

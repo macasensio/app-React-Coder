@@ -17,10 +17,7 @@ const App = () => {
     //const nombre = prompt('Hola! ¿cuál es tu nombre?');
     return (
         <>
-            <Header
-                usuarios={['Mac', 'Julián']} 
-                persona={{nombre: 'Maccc', edad: 32}}
-            />
+            <Header/>
             <ItemListContainer
                 greeting="Bienvenid@" 
                 nombre="{nombre}" 

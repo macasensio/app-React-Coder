@@ -4,22 +4,28 @@ import producto3 from '../assets/producto3.jpg'
 
 const productos = [
     {
-        key: 1,
+        id: 1,
         title: 'Producto 1',
         price: 560,
-        pictureUrl: {producto1}
+        pictureUrl: producto1,
+        description: 'Descripción producto 1',
+        stock: 6
     },
     {
-        key: 2,
+        id: 2,
         title: 'Producto 2',
-        price: 560,
-        pictureUrl: {producto2}
+        price: 740,
+        pictureUrl: producto2,
+        description: 'Descripción producto 2',
+        stock: 7
     },
     {
-        key: 3,
+        id: 3,
         title: 'Producto 3',
-        price: 560,
-        pictureUrl: {producto3}
+        price: 990,
+        pictureUrl: producto3,
+        description: 'Descripción producto 3',
+        stock: 8
     }
 
 ]

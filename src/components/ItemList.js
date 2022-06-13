@@ -1,31 +1,26 @@
-//import Item from "./Item"
-import producto1 from '../assets/producto1.jpg'
-import producto2 from '../assets/producto2.jpg'
-import producto3 from '../assets/producto3.jpg'
+import Item from "./Item"
+import ItemCount from "./ItemCount"
 
+//ItemList lo que hace es mapear cosas
+//me retorna el Item x veces según mi array
 const ItemList = ({products}) => {
     return (
-        <p>ItemList</p>
-        /*<div id="div-productos">
-            <Item key={1} title={'Producto 1'} price={560} pictureUrl={producto1}/>
-            <Item key={2} title={'Producto 2'} price={980} pictureUrl={producto2}/>
-            <Item key={3} title={'Producto 3'} price={400} pictureUrl={producto3}/>
-        </div>*/
-
-        /* products.map(p => {
+        products.map(p =>
             <Item
-                key={}
-                title={}
-                price={}
-                pictureUrl={}
+                key={p.id}
+                id={p.id}
+                title={p.title}
+                price={p.price}
+                pictureUrl={p.pictureUrl}
+                description={p.description}
+                stock={p.stock}
 
-                //o con el spread operator, quedaría:
-                // key={p.id} {...p}
+                //o con el spread operator, quedaría: que le estamos diciendo que reciba como key el p.id y luego, que reciba el resto
+                // key={p.id}
+                //{...p}
             />
-        })*/
-
+        )
     )
-
 }
 
 export default ItemList

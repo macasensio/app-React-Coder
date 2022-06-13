@@ -1,5 +1,4 @@
 import {useState} from 'react'
-import producto1 from '../assets/producto1.jpg'
 
 const ItemCount = ({stock, initial, onAdd}) => {
     //el useState() siempre da un array
@@ -59,15 +58,17 @@ const ItemCount = ({stock, initial, onAdd}) => {
 
 
     return (
-        <div id="producto">
-            <h3>Producto</h3>
+        <div>
+            {/* <h3>Producto</h3>
             <img src={producto1} alt="producto 1" width="250" />
-            <p>Precio: $670</p>
+            <p>Precio: $670</p> */}
             <p>Stock disponible: {contadorStock}</p>
             <p>Cantidad de producto seleccionado: {contadorProducto}</p>
-            <button onClick={aumentarContador}><span className="material-symbols-outlined">add</span></button>
-            <button onClick={reducirContador}><span className="material-symbols-outlined">remove</span></button>
-            <button onClick={agregarAlCarrito}>Agregar al carrito</button>
+            <div id="botones">
+                <button onClick={reducirContador}><span className="material-symbols-outlined">remove</span></button>
+                <button onClick={agregarAlCarrito}>Agregar al carrito</button>
+                <button onClick={aumentarContador}><span className="material-symbols-outlined">add</span></button>
+            </div>
         </div>
     )
 }
