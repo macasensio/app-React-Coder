@@ -5,10 +5,10 @@ const NavBar = (props) => {
 
     return (
         <nav className={props.laClase}>
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-            {props.inHeader ? <a href="#"><CardWidget cantProductosCarrito={0}/></a> : <a href="#">Link Footer</a> }            
+            <a href="#">Terrarios</a>
+            <a href="#">Exterior</a>
+            <a href="#">Interior</a>
+            {props.inHeader ? <a href="#"><CardWidget cantProductosCarrito={0}/></a> : <a href="#">Instagram</a> }            
         </nav>
     )
 }

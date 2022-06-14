@@ -23,7 +23,7 @@ header a, nav a {
     display: inline-block;
 }
 
-#greeting, .cargaProductos {
+#greeting, .cargaProductos h2 {
     padding-top: 20px;
     font-style: italic;
     color:#546de5;
@@ -67,8 +67,12 @@ img {
     box-shadow: #303952 2px 4px;
 }
 
+.itemDetail {
+    background-color: #546de5;
+    padding: 50px;
+}
+
 main {
-    height: 30vh;
     margin: 50px auto;
     background-color: #63cdda;
     border-radius: 5px

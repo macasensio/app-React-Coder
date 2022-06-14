@@ -1,10 +1,16 @@
-const Main = () => {
 
-    
+import ItemDetailContainer from './ItemDetailContainer'
+import ItemListContainer from './ItemListContainer'
+
+const Main = () => {    
 
     return (
         <main>
-            <p>Main</p>
+            <ItemListContainer
+                greeting="Bienvenid@" 
+                nombre="{nombre}" 
+            />
+            <ItemDetailContainer />
         </main>
     )
 }

@@ -1,4 +1,5 @@
 import bart from '../assets/loading-bart.jpg'
+//import loading from '../assets/loading.gif'
 
 const LoadingProducts = () => {
     return (

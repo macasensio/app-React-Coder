@@ -3,7 +3,7 @@ import LoadingProducts from "./LoadingProducts"
 
 import { useEffect, useState } from "react"
 
-import promesaProductos from '../utils/promesaProductos'
+import promesaTraerProductos from '../utils/promesaTraerProductos'
 import productos from '../utils/productos'
 
 const ItemListContainer = ({greeting, nombre}) => {
@@ -19,12 +19,12 @@ const ItemListContainer = ({greeting, nombre}) => {
     //useEffect
     //usamos el useEffect para que cuando esto se monte, caiga la promesa que estamos pidiendo
     useEffect(() => {
-        promesaProductos(3000, productos)
+        promesaTraerProductos(3000, productos)
         //then -> entonces
         //le digo que con el resultado que reciba modifique mi estado (array vacío) con el resultado
         .then(resultado => setItems(resultado))
+        .catch(error => console.log(error))
     }, [items])
-    console.log(items)
 
     if (items.length > 0) {
         return (

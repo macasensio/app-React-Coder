@@ -63,7 +63,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
             <img src={producto1} alt="producto 1" width="250" />
             <p>Precio: $670</p> */}
             <p>Stock disponible: {contadorStock}</p>
-            <p>Cantidad de producto seleccionado: {contadorProducto}</p>
+            <p>Cantidad seleccionada: {contadorProducto}</p>
             <div id="botones">
                 <button onClick={reducirContador}><span className="material-symbols-outlined">remove</span></button>
                 <button onClick={agregarAlCarrito}>Agregar al carrito</button>
