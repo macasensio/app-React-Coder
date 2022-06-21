@@ -4,38 +4,37 @@ import LoadingProducts from "./LoadingProducts"
 import { useEffect, useState } from "react"
 
 import promesaTraerProductos from '../utils/promesaTraerProductos'
+import promesaFiltrarCategoria from "../utils/promesaFiltrarCategoria"
 import productos from '../utils/productos'
+import { useParams } from "react-router-dom"
 
-const ItemListContainer = ({greeting, nombre}) => {
+const ItemListContainer = () => {
 
-
-    //const stock = prompt('Cantidad de productos')
-
-    //useState
-    //como sabemos que esto va a cambiar (tener un estado inicial y luego va a cambiar) vamos a usar useState
-    //1ero vamos a tener un array vacío, luego después de x cantidad de segundo, recibimos el array
     const [items, setItems] = useState([])
+    let categoria = useParams()
+    categoria = categoria.categoryId
+    console.log(categoria)
 
-    //useEffect
-    //usamos el useEffect para que cuando esto se monte, caiga la promesa que estamos pidiendo
     useEffect(() => {
-        promesaTraerProductos(3000, productos)
-        //then -> entonces
-        //le digo que con el resultado que reciba modifique mi estado (array vacío) con el resultado
-        .then(resultado => setItems(resultado))
-        .catch(error => console.log(error))
-    }, [items])
+
+        if (!categoria) {
+            promesaTraerProductos(1500, productos)
+                .then(resultado => setItems(resultado))
+                .catch(error => console.log(error))
+        } else {          
+            promesaFiltrarCategoria(categoria)
+                .then(resultado => setItems(resultado))
+                .catch(error => console.log(error))
+        }
+
+    }, [categoria])
+        
 
     if (items.length > 0) {
         return (
-            <>
-                <div id="greeting">
-                    <h2>{greeting +' '+nombre}</h2>
-                </div>
-                <div id="div-productos">
-                    <ItemList products={items} />
-                </div>
-            </>
+            <div id="div-productos">
+                <ItemList products={items} />
+            </div>
         )
     } else {
         return (

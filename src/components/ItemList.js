@@ -1,7 +1,5 @@
 import Item from "./Item"
 
-//ItemList lo que hace es mapear cosas
-//me retorna el Item x veces según mi array
 const ItemList = ({products}) => {
     return (
         products.map(p =>

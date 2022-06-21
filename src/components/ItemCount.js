@@ -1,23 +1,9 @@
 import {useState} from 'react'
 
-const ItemCount = ({stock, initial, onAdd}) => {
-    //el useState() siempre da un array
-    //el array tiene 2 cosas adentro:
-    //1 - la primera posición es el lugar donde está mi estado
-    //2 - una función anónima que permite modificar al estado en sí
-    //convencionalmente, las funciones arrancan con "set"
+const ItemCount = ({stock, initial, onAdd}) => { 
 
-    //resultado es la variable donde guardamos nuestro estado, es el estado inicial
-    
-
-    
-
-    // ------------  STATE PRODUCTO  ------------
-    //haciendo destructuring, en una línea queda así:
+    /* ----- STATE PRODUCTO ------ */
     const [contadorProducto, setContadorProducto] = useState(initial)
-    //const stateProducto = useState(initial)
-    //const contadorProducto = stateProducto[0] //mi estado
-    //const setContadorProducto = stateProducto[1] //función que me permite cambiar el estado
 
     const aumentarContador = () => {
         if (contadorProducto < stock) {
@@ -32,11 +18,8 @@ const ItemCount = ({stock, initial, onAdd}) => {
         }
     }
 
-    // ------------  STATE STOCK ------------
+    /* ----- STATE STOCK ------ */
     const [contadorStock, setContadorStock] = useState(stock)
-    //const stateStock = useState(stock)
-    //const contadorStock = stateStock[0]
-    //const setContadorStock = stateStock[1]
 
     const reducirStock = () => {
         if (contadorStock > 0) {
@@ -50,18 +33,14 @@ const ItemCount = ({stock, initial, onAdd}) => {
         }
     }
 
-    // ------------  AGREGAR AL CARRITO ------------
+    
     const agregarAlCarrito = () => {
         alert('Cantidad de productos añadidos al carrito: '+ contadorProducto);
-        //onAdd(contadorProducto)
     }
 
 
     return (
         <div>
-            {/* <h3>Producto</h3>
-            <img src={producto1} alt="producto 1" width="250" />
-            <p>Precio: $670</p> */}
             <p>Stock disponible: {contadorStock}</p>
             <p>Cantidad seleccionada: {contadorProducto}</p>
             <div id="botones">

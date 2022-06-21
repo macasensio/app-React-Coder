@@ -1,12 +1,11 @@
-//esta promesa va a recibir 2 productos
-const promesaDetailProduct = (time, task) => {
-    //promesa
-    //la promesa tiene que resolver algo, tenemos que decirle qué hacer
+import productos from "./productos"
+
+const promesaDetailProduct = (id) => {
     return new Promise ((resolve) => {
         setTimeout(() => {
-            resolve(task)
-        }, time)
+            resolve(productos.find(prod => prod.id === id))
+        }, 500)
     })
 }
 
-export default promesaDetailProduct;
+export default promesaDetailProduct

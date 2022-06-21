@@ -3,30 +3,37 @@ import ItemDetail from '../components/ItemDetail'
 import { useEffect, useState } from 'react'
 
 import promesaDetailProduct from '../utils/promesaDetailProduct'
-import producto from '../utils/producto'
+import { useParams } from 'react-router-dom'
+import LoadingProducts from './LoadingProducts'
 
 
 const ItemDetailContainer = () => {
+    console.log('ItemDetailContainer')
 
     //useState
     const [item, setItem] = useState({})
+    const {id} = useParams()
 
     useEffect(() => {
-        promesaDetailProduct(3000, producto)
-        //then -> entonces
-        //le digo que con el resultado que reciba modifique mi estado (array vacío) con el resultado
-        .then(resultado => setItem(resultado))
-        .catch(error => console.log(error))
-    }, [item])
-    console.log(item)
+        promesaDetailProduct(parseInt(id))
+            .then(resultado => {console.log(resultado);setItem(resultado)})
+            .catch(error => console.log(error))
+        
+    },[])
 
     if (item.length > 0) {
+        console.log('item.length > 0')
         return (
             <div id="itemDetailContainer">
-                <ItemDetail producto={item} />
+                <ItemDetail product={item} />
             </div>
         )
-    } 
+    } else {
+        console.log('item.length < 0')
+        return (
+            <LoadingProducts />
+        )
+    }
 }
 
 export default ItemDetailContainer
