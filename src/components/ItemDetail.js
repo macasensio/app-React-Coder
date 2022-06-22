@@ -1,18 +1,19 @@
 import ItemCount from "./ItemCount"
 
-const ItemDetail = ({producto}) => {
+const ItemDetail = ({product}) => {
+    console.log(ItemDetail)
     return (
-        producto.map(p =>            
-            <div className="itemDetail" key={p.id}>
-                <h3>{p.title}</h3>
-                <img src={p.pictureUrl} alt={p.title} width="250" />
-                <p>{p.description}</p>
-                <p>Categoría: {p.categoria}</p>
-                <p>Precio: ${p.price}</p>
-                <ItemCount stock={p.stock} initial={0} onAdd={() => {}}/>
+        //producto.map(p =>            
+            <div className="itemDetail" key={product.id}>
+                <h3>{product.title}</h3>
+                <img src={product.pictureUrl} alt={product.title} width="250" />
+                <p>{product.description}</p>
+                <p>Categoría: {product.categoria}</p>
+                <p>Precio: ${product.price}</p>
+                <ItemCount stock={product.stock} initial={0} onAdd={() => {}}/>
             </div>
         )
-    )
+    //)
 }
 
 export default ItemDetail

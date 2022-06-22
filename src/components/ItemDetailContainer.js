@@ -21,19 +21,11 @@ const ItemDetailContainer = () => {
         
     },[])
 
-    if (item.length > 0) {
-        console.log('item.length > 0')
-        return (
-            <div id="itemDetailContainer">
-                <ItemDetail product={item} />
-            </div>
-        )
-    } else {
-        console.log('item.length < 0')
-        return (
-            <LoadingProducts />
-        )
-    }
+    return (
+        <div id="itemDetailContainer">
+            <ItemDetail product={item} />
+        </div>
+    )
 }
 
 export default ItemDetailContainer
