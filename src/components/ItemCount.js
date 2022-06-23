@@ -34,8 +34,8 @@ const ItemCount = ({stock, initial, onAdd}) => {
     }
 
     
-    const agregarAlCarrito = () => {
-        alert('Cantidad de productos añadidos al carrito: '+ contadorProducto);
+    const agregarAlCarrito = (e) => {        
+        onAdd(contadorProducto)
     }
 
 
@@ -45,8 +45,10 @@ const ItemCount = ({stock, initial, onAdd}) => {
             <p>Cantidad seleccionada: {contadorProducto}</p>
             <div id="botones">
                 <button onClick={reducirContador}><span className="material-symbols-outlined">remove</span></button>
-                <button onClick={agregarAlCarrito}>Agregar al carrito</button>
                 <button onClick={aumentarContador}><span className="material-symbols-outlined">add</span></button>
+
+                <button onClick={agregarAlCarrito}>Agregar al carrito</button>
+
             </div>
         </div>
     )

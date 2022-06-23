@@ -13,13 +13,14 @@ const ItemListContainer = () => {
     const [items, setItems] = useState([])
     let categoria = useParams()
     categoria = categoria.categoryId
-    console.log(categoria)
 
     useEffect(() => {
 
         if (!categoria) {
-            promesaTraerProductos(1500, productos)
-                .then(resultado => setItems(resultado))
+            promesaTraerProductos(1200, productos)
+                .then(resultado => {
+                    setItems(resultado)
+                })
                 .catch(error => console.log(error))
         } else {          
             promesaFiltrarCategoria(categoria)
@@ -30,7 +31,12 @@ const ItemListContainer = () => {
     }, [categoria])
         
 
-    if (items.length > 0) {
+    return (
+        <>
+            {items.length > 0 ? <div id="div-productos"><ItemList products={items} /></div> : <LoadingProducts />}
+        </>
+    )
+    /*if (items.length > 0) {
         return (
             <div id="div-productos">
                 <ItemList products={items} />
@@ -40,7 +46,7 @@ const ItemListContainer = () => {
         return (
             <LoadingProducts />
         )
-    }
+    }*/
     
 }
 

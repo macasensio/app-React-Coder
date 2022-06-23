@@ -8,7 +8,6 @@ import LoadingProducts from './LoadingProducts'
 
 
 const ItemDetailContainer = () => {
-    console.log('ItemDetailContainer')
 
     //useState
     const [item, setItem] = useState({})
@@ -16,7 +15,7 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
         promesaDetailProduct(parseInt(id))
-            .then(resultado => {console.log(resultado);setItem(resultado)})
+            .then(resultado => {setItem(resultado)})
             .catch(error => console.log(error))
         
     },[])
