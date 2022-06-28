@@ -1,22 +1,24 @@
 import ItemCount from "./ItemCount"
-import { Link } from 'react-router-dom'
-
-import { useState, useEffect } from "react"
+import BtnFinalizarCompra from "./BtnFinalizarCompra"
+import { useState, useContext } from "react"
+import { contexto } from './CartContext'
 
 const ItemDetail = ({product}) => {
+        
+    const [compraConfirmada,setCompraConfirmada] = useState(false)
     
-    
-    const [compraConfirmada,setcompraConfirmada] = useState(false)
+    //contexto
+    //addItem() y vaciarProducto() cuando clickeo BtnFinalizarCompra
+    const { addItem } = useContext(contexto)
 
     const onAdd = (cantidadSeleccionada) => {
         if (cantidadSeleccionada == 0) {
             alert('debe elegir al menos 1 unidad del producto')
         } else  {
-            console.log('cantidadSeleccionada -> '+cantidadSeleccionada)
-            setcompraConfirmada(true)
+            addItem(product, cantidadSeleccionada)
+            setCompraConfirmada(true)
         }
-    }
-
+    }    
 
     return (      
             <div className="itemDetail" key={product.id}>
@@ -25,8 +27,7 @@ const ItemDetail = ({product}) => {
                 <p>{product.description}</p>
                 <p>Categoría: {product.categoria}</p>
                 <p>Precio: ${product.price}</p>
-                {!compraConfirmada ? <ItemCount stock={product.stock} initial={0} onAdd={onAdd}/> : 
-                <Link to="/checkout"><button>Proceder con la compra</button></Link>}
+                {!compraConfirmada ? <ItemCount stock={product.stock} initial={0} onAdd={onAdd}/> : <BtnFinalizarCompra />}
             </div>
         )
 }

@@ -11,20 +11,27 @@ import { useParams } from "react-router-dom"
 const ItemListContainer = () => {
 
     const [items, setItems] = useState([])
+    const [loading, setLoading] = useState(true)
     let categoria = useParams()
     categoria = categoria.categoryId
 
     useEffect(() => {
 
+        setLoading(true)
+
         if (!categoria) {
             promesaTraerProductos(1200, productos)
                 .then(resultado => {
                     setItems(resultado)
+                    setLoading(false)
                 })
                 .catch(error => console.log(error))
         } else {          
             promesaFiltrarCategoria(categoria)
-                .then(resultado => setItems(resultado))
+                .then(resultado => {
+                    setItems(resultado)
+                    setLoading(false)
+            })
                 .catch(error => console.log(error))
         }
 
@@ -33,7 +40,7 @@ const ItemListContainer = () => {
 
     return (
         <>
-            {items.length > 0 ? <div id="div-productos"><ItemList products={items} /></div> : <LoadingProducts />}
+            {!loading ? <div id="div-productos"><ItemList products={items} /></div> : <LoadingProducts />}
         </>
     )
     /*if (items.length > 0) {

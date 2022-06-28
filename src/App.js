@@ -10,17 +10,17 @@
 import Footer from './components/Footer'
 import Header from './components/Header'
 import Main from './components/Main'
+
 import { BrowserRouter } from 'react-router-dom'
+import MiProvider from './components/CartContext'
 
-
-
-//fragmento: es una etiqueta que no tiene nombre. Nos permite encapsular muchas etiquetas. En el DOM no se ve.
 const App = () => {
-    //const nombre = prompt('Hola! ¿cuál es tu nombre?');
     return (
         <BrowserRouter>
-            <Header/>            
-            <Main />
+            <MiProvider>
+                <Header/>            
+                <Main />
+            </MiProvider>
             <Footer />
         </BrowserRouter>
     )

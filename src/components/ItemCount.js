@@ -1,5 +1,10 @@
 import {useState} from 'react'
 
+import { useContext } from 'react'
+import { contexto } from './CartContext'
+
+import { useParams } from 'react-router-dom'
+
 const ItemCount = ({stock, initial, onAdd}) => { 
 
     /* ----- STATE PRODUCTO ------ */
@@ -33,9 +38,23 @@ const ItemCount = ({stock, initial, onAdd}) => {
         }
     }
 
+    /* ----- CONTEXT - AGREGAR PRODUCTO ------ */
+
+    const resultado = useContext(contexto)
+    //console.log('resultado')
+    /*console.log(resultado.carrito)
+    console.log(resultado)*/
     
-    const agregarAlCarrito = (e) => {        
-        onAdd(contadorProducto)
+    const {id} = useParams()
+
+    const agregarAlCarrito = (e) => {
+        if (contadorProducto) {
+            console.log('contadorProducto')
+            console.log(contadorProducto)
+            resultado.addItem(id, contadorProducto)
+        } else {
+            alert('debe elegir al menos 1 unidad del producto')
+        }
     }
 
 
@@ -44,11 +63,9 @@ const ItemCount = ({stock, initial, onAdd}) => {
             <p>Stock disponible: {contadorStock}</p>
             <p>Cantidad seleccionada: {contadorProducto}</p>
             <div id="botones">
-                <button onClick={reducirContador}><span className="material-symbols-outlined">remove</span></button>
-                <button onClick={aumentarContador}><span className="material-symbols-outlined">add</span></button>
-
-                <button onClick={agregarAlCarrito}>Agregar al carrito</button>
-
+                <button onClick={reducirContador} className="btn-count"><span className="material-symbols-outlined">remove</span></button>
+                <button onClick={aumentarContador} className="btn-count"><span className="material-symbols-outlined">add</span></button>
+                <button onClick={agregarAlCarrito} className="btn-agregar-carrito">Agregar al carrito</button>
             </div>
         </div>
     )
