@@ -12,7 +12,7 @@ import { contexto } from './CartContext'
 
 const CartWidget = () => {
 
-    const resultado = useContext(contexto)
+    const { cantidad_total, carritoLenght } = useContext(contexto)
     //console.log(resultado)
     // console.log('carrito -> ')
     // console.log(resultado.carrito)
@@ -23,7 +23,7 @@ const CartWidget = () => {
 
     return (
         <Link to="/carrito" id="icon-carrito">
-            <span className="material-symbols-outlined">shopping_cart</span>{resultado.cantidad_total}
+            <span className="material-symbols-outlined">shopping_cart</span>{carritoLenght()}
         </Link>
     )
 }

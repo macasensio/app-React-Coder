@@ -40,22 +40,22 @@ const ItemCount = ({stock, initial, onAdd}) => {
 
     /* ----- CONTEXT - AGREGAR PRODUCTO ------ */
 
-    const resultado = useContext(contexto)
+    //const { addItem } = useContext(contexto)
     //console.log('resultado')
     /*console.log(resultado.carrito)
     console.log(resultado)*/
     
-    const {id} = useParams()
+    /*const {id} = useParams()
 
-    const agregarAlCarrito = (e) => {
+    const agregarAlCarrito = () => {
         if (contadorProducto) {
-            console.log('contadorProducto')
-            console.log(contadorProducto)
-            resultado.addItem(id, contadorProducto)
+            console.log('id: '+ id)
+            console.log('contadorProducto: '+contadorProducto)
+            addItem(id, contadorProducto)
         } else {
             alert('debe elegir al menos 1 unidad del producto')
         }
-    }
+    }*/
 
 
     return (
@@ -65,7 +65,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
             <div id="botones">
                 <button onClick={reducirContador} className="btn-count"><span className="material-symbols-outlined">remove</span></button>
                 <button onClick={aumentarContador} className="btn-count"><span className="material-symbols-outlined">add</span></button>
-                <button onClick={agregarAlCarrito} className="btn-agregar-carrito">Agregar al carrito</button>
+                <button onClick={() => onAdd(contadorProducto)} className="btn-agregar-carrito">Agregar al carrito</button>
             </div>
         </div>
     )

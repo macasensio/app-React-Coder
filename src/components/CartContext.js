@@ -1,4 +1,5 @@
 import { createContext, useState } from 'react'
+import ItemDetail from './ItemDetail'
 
 //adentro del contexto puede ir cualquier cosa. objetos, array, etc etc
 export const contexto = createContext()
@@ -14,52 +15,77 @@ const Provider = contexto.Provider
 
 const MiProvider = ({children}) => {
 
-    const [carrito, setCarrito] = useState([{}])
-    const [cantidad_total, setCantidadTotal] = useState(0)
-    const [precio_total, setPrecioTotal] = useState(0)
+    const [carrito, setCarrito] = useState([])
 
+
+    //agregar un item al carrito
     const addItem = (producto, cantidad) => {
-        //setCarrito
+        
         const copia = [...carrito]
-        console.log('copia')
-        console.log(copia)
-        const nuevo_producto = {
+        /*const nuevo_producto = {
             ...producto,
             cantidad: cantidad
         }
-        //console.log(nuevo_producto.cantidad)
         copia.push(nuevo_producto)
-
-        setCarrito(copia)
-
-        //console.log('addItem ejecutandose')
-        //console.log(producto, cantidad)
+        setCarrito(copia)*/
+        
+        if (isInCart(producto.id)) {
+            console.log('el producto ya está en el carrito')
+            //actualizar cantidad del producto.id
+            
+        } else {
+            console.log('nuevo producto en el carrito')
+            const nuevo_producto = {
+                ...producto,
+                cantidad: cantidad
+            }
+            copia.push(nuevo_producto)
+            setCarrito(copia)
+        }
 
     }
 
-    /*****const eliminarProducto = (producto) => {
-        //setCarrito
+    //chequear si el item está en el carrito
+    const isInCart = (id) => {
+        return carrito.find(item => item.id == id)
     }
-    const actualizarCantidad = (producto, cantidad) => {
-        //setCarrito
+    
+    //contador carrito
+    const carritoLenght = () => {
+        let cantidadCarrito = 0
+        carrito.forEach((item) => {
+            cantidadCarrito += item.cantidad
+        })
+        return cantidadCarrito
     }
-    const vaciarCarrito = () => {
-        //setCarrito
-    }*****/
 
-    //const valorDelContexto = []
-    /*const valorDelContexto = {
-        carrito: {},
-        usuario: {},
-        mensajes: []
+    //precio total
+    const precioTotal = () => {
+        let total = 0
+        carrito.forEach((item) => {
+            total = total + (item.cantidad * item.price)
+        })
+        return total
+    }
+
+    //eliminar producto
+    /*const eliminarProducto = (producto) => {
+        //setCarrito
+    }*/
+
+    //vaciar carrito
+    /*const vaciarCarrito = () => {
+        //setCarrito
     }*/
 
     //esto es lo que voy a pasar!
     const valorDelContexto = {
         carrito: carrito,
-        cantidad_total: cantidad_total,
-        precio_total: precio_total,
+        //cantidad_total: cantidad_total,
+        //precio_total: precio_total,
         addItem: addItem,
+        carritoLenght: carritoLenght,
+        precioTotal: precioTotal,
         /* eliminarProducto: eliminarProducto,
         actualizarCantidad: actualizarCantidad,
         vaciarCarrito: vaciarCarrito*/
