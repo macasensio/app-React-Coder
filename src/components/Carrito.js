@@ -4,7 +4,7 @@ import { contexto } from './CartContext'
 
 const Carrito = () => {
 
-    const {carrito, precioTotal} = useContext(contexto)
+    const {carrito, precioTotal, eliminarProducto, vaciarCarrito} = useContext(contexto)
     /*console.log('resultado')
     console.log(resultado.carrito.title)
     console.log(resultado)*/
@@ -40,6 +40,7 @@ const Carrito = () => {
                         <p>Cantidad de productos: {item.cantidad}</p>
                         <p>Precio por unidad: {item.price}</p>
                         <p>Precio total: {item.price*item.cantidad}</p>
+                        <button className="btn-proceder-compra" onClick={() => {eliminarProducto(item.id)}}>Eliminar</button>
                     </div>
                 )
             )
@@ -49,6 +50,7 @@ const Carrito = () => {
         { carrito.length ?
             <>
                 <p>Total = ${precioTotal()}</p>
+                <button className="btn-proceder-compra" onClick={vaciarCarrito}>Vaciar carrito</button>
                 <BtnFinalizarCompra /> 
             </>
         : null }

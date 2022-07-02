@@ -17,20 +17,19 @@ const MiProvider = ({children}) => {
 
     const [carrito, setCarrito] = useState([])
 
+    //chequear si el item está en el carrito
+    const isInCart = (id) => {
+        return carrito.find(item => item.id == id)
+    }
 
     //agregar un item al carrito
     const addItem = (producto, cantidad) => {
         
         const copia = [...carrito]
-        /*const nuevo_producto = {
-            ...producto,
-            cantidad: cantidad
-        }
-        copia.push(nuevo_producto)
-        setCarrito(copia)*/
         
         if (isInCart(producto.id)) {
             console.log('el producto ya está en el carrito')
+            actualizarCantidad(producto, cantidad)
             //actualizar cantidad del producto.id
             
         } else {
@@ -45,10 +44,24 @@ const MiProvider = ({children}) => {
 
     }
 
-    //chequear si el item está en el carrito
-    const isInCart = (id) => {
-        return carrito.find(item => item.id == id)
+    //actualizar contador carrito + contador producto
+    const actualizarCantidad = (producto, cantidad) => {
+        const newProducts = carrito.map((item) => {
+            if (item.id == producto.id) {
+                const newProduct = {
+                    ...item,
+                    cantidad: item.cantidad + cantidad
+                }
+                console.log('item.cantidad: '+ item.cantidad)
+                console.log('cantidad: '+ cantidad)
+                return newProduct
+            } else {
+                return item
+            }
+        })
+        setCarrito(newProducts)
     }
+
     
     //contador carrito
     const carritoLenght = () => {
@@ -69,26 +82,23 @@ const MiProvider = ({children}) => {
     }
 
     //eliminar producto
-    /*const eliminarProducto = (producto) => {
-        //setCarrito
-    }*/
+    const eliminarProducto = (id) => {
+        setCarrito(carrito.filter((item) => item.id !== id))
+    }
 
     //vaciar carrito
-    /*const vaciarCarrito = () => {
-        //setCarrito
-    }*/
+    const vaciarCarrito = () => {
+        setCarrito([])
+    }
 
     //esto es lo que voy a pasar!
     const valorDelContexto = {
-        carrito: carrito,
-        //cantidad_total: cantidad_total,
-        //precio_total: precio_total,
-        addItem: addItem,
-        carritoLenght: carritoLenght,
-        precioTotal: precioTotal,
-        /* eliminarProducto: eliminarProducto,
-        actualizarCantidad: actualizarCantidad,
-        vaciarCarrito: vaciarCarrito*/
+        carrito,
+        addItem,
+        carritoLenght,
+        precioTotal,
+        eliminarProducto,
+        vaciarCarrito,
     }
 
     return (
