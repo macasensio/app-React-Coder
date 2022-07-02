@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react'
 
 import promesaDetailProduct from '../utils/promesaDetailProduct'
 import { useParams } from 'react-router-dom'
-import LoadingProducts from './LoadingProducts'
 
 
 const ItemDetailContainer = () => {

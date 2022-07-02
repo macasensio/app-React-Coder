@@ -1,6 +1,8 @@
+import Form from "./Form"
+
 const Checkout = () => {
     return (
-        <h2>Checkout</h2>
+        <Form />
     )
 }
 

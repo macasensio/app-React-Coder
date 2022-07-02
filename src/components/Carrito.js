@@ -2,6 +2,8 @@ import BtnFinalizarCompra from './BtnFinalizarCompra'
 import { useContext } from 'react'
 import { contexto } from './CartContext'
 
+import  { Link } from 'react-router-dom'
+
 const Carrito = () => {
 
     const {carrito, precioTotal, eliminarProducto, vaciarCarrito} = useContext(contexto)
@@ -19,42 +21,35 @@ const Carrito = () => {
     console.log('carrito en carrito = ')
     console.log(carrito)
     return (
-        /*<>
-            <div className='producto-carrito'>
-                <h3>title: title</h3>
-                <img src="product.pictureUrl" alt="product.title" width="100%" />
-                <p>Cantidad de productos: cantidad_total</p>
-                <p>Precio: product.price</p>
-            </div>
-            <p>Precio total: precio_total</p><BtnFinalizarCompra />
-        </>*/
-
-        <>
-        { carrito.length
-            ? carrito.map(item => (
-                console.log('item: '),
-                console.log(item),                
-                    <div className='producto-carrito'>                  
-                        <h3>title: {item.title}</h3>
-                        <img src={item.pictureUrl} alt={item.title} width="200" />
-                        <p>Cantidad de productos: {item.cantidad}</p>
-                        <p>Precio por unidad: {item.price}</p>
-                        <p>Precio total: {item.price*item.cantidad}</p>
-                        <button className="btn-proceder-compra" onClick={() => {eliminarProducto(item.id)}}>Eliminar</button>
-                    </div>
-                )
-            )
-            : <p>tu carrito está vacío</p>
-
-        }
-        { carrito.length ?
-            <>
-                <p>Total = ${precioTotal()}</p>
-                <button className="btn-proceder-compra" onClick={vaciarCarrito}>Vaciar carrito</button>
-                <BtnFinalizarCompra /> 
-            </>
-        : null }
         
+        <>
+            { carrito.length
+                ? carrito.map(item => (
+                    console.log('item: '),
+                    console.log(item),                
+                        <div className='producto-carrito'>
+                            <h3>{item.title}</h3>
+                            <img src={item.pictureUrl} alt={item.title} width="200" />
+                            <p>Cantidad de productos: {item.cantidad}</p>
+                            <p>Precio por unidad: {item.price}</p>
+                            <p>Precio total: {item.price*item.cantidad}</p>
+                            <button className="btn-proceder-compra" onClick={() => {eliminarProducto(item.id)}}>Eliminar</button>
+                            <hr></hr>
+                        </div>
+                    )
+                )
+                : <>
+                    <p>Tu carrito está vacío, <Link to="/">ve a comprar algo!</Link></p>
+                </>
+
+            }
+            { carrito.length ?
+                <>
+                    <p>Total = ${precioTotal()}</p>
+                    <button className="btn-proceder-compra" onClick={vaciarCarrito}>Vaciar carrito</button>
+                    <BtnFinalizarCompra /> 
+                </>
+            : null }        
         </>
 
     )
