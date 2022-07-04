@@ -12,7 +12,7 @@ const productos = [
     {
         id: 1,
         title: 'Producto 1',
-        price: 560,
+        price: 14,
         pictureUrl: producto1,
         description: 'Descripción producto 1',
         stock: 6,
@@ -21,7 +21,7 @@ const productos = [
     {
         id: 2,
         title: 'Producto 2',
-        price: 740,
+        price: 17,
         pictureUrl: producto2,
         description: 'Descripción producto 2',
         stock: 7,
@@ -30,7 +30,7 @@ const productos = [
     {
         id: 3,
         title: 'Producto 3',
-        price: 990,
+        price: 15,
         pictureUrl: producto3,
         description: 'Descripción producto 3',
         stock: 8,
@@ -38,7 +38,7 @@ const productos = [
     },{
         id: 4,
         title: 'Producto 4',
-        price: 320,
+        price: 8,
         pictureUrl: producto4,
         description: 'Descripción producto 4',
         stock: 6,
@@ -47,7 +47,7 @@ const productos = [
     {
         id: 5,
         title: 'Producto 5',
-        price: 670,
+        price: 12,
         pictureUrl: producto5,
         description: 'Descripción producto 5',
         stock: 7,
@@ -56,7 +56,7 @@ const productos = [
     {
         id: 6,
         title: 'Producto 6',
-        price: 440,
+        price: 11,
         pictureUrl: producto6,
         description: 'Descripción producto 6',
         stock: 8,
@@ -64,7 +64,7 @@ const productos = [
     },{
         id: 7,
         title: 'Producto 7',
-        price: 870,
+        price: 9,
         pictureUrl: producto7,
         description: 'Descripción producto 7',
         stock: 6,
@@ -73,7 +73,7 @@ const productos = [
     {
         id: 8,
         title: 'Producto 8',
-        price: 350,
+        price: 9,
         pictureUrl: producto8,
         description: 'Descripción producto 8',
         stock: 7,
@@ -82,7 +82,7 @@ const productos = [
     {
         id: 9,
         title: 'Producto 9',
-        price: 280,
+        price: 8,
         pictureUrl: producto9,
         description: 'Descripción producto 9',
         stock: 8,

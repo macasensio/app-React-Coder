@@ -14,6 +14,7 @@ import Main from './components/Main'
 import { BrowserRouter } from 'react-router-dom'
 import MiProvider from './components/CartContext'
 
+
 const App = () => {
     return (
         <BrowserRouter>

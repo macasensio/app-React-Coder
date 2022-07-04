@@ -29,10 +29,10 @@ const Carrito = () => {
                     console.log(item),                
                         <div className='producto-carrito'>
                             <h3>{item.title}</h3>
-                            <img src={item.pictureUrl} alt={item.title} width="200" />
+                            <img src={item.pictureUrl} alt={item.title} width="250" />
                             <p>Cantidad de productos: {item.cantidad}</p>
-                            <p>Precio por unidad: {item.price}</p>
-                            <p>Precio total: {item.price*item.cantidad}</p>
+                            <p>Precio por unidad: € {item.price}</p>
+                            <p>Precio total: € {item.price*item.cantidad}</p>
                             <button className="btn-proceder-compra" onClick={() => {eliminarProducto(item.id)}}>Eliminar</button>
                             <hr></hr>
                         </div>
@@ -45,7 +45,7 @@ const Carrito = () => {
             }
             { carrito.length ?
                 <>
-                    <p>Total = ${precioTotal()}</p>
+                    <p>Total = € {precioTotal()}</p>
                     <button className="btn-proceder-compra" onClick={vaciarCarrito}>Vaciar carrito</button>
                     <BtnFinalizarCompra /> 
                 </>
