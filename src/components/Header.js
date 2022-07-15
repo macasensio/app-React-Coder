@@ -2,7 +2,6 @@ import { Link } from "react-router-dom"
 import NavBar from "./NavBar"
 
 const Header = () => {
-
     return (
         <header>
             <Link to="/">
@@ -11,7 +10,6 @@ const Header = () => {
             <NavBar inHeader={true} laClase="navbar-header"/>
         </header>
     )
-
 }
 
 export default Header

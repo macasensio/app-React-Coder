@@ -1,33 +1,18 @@
 import BtnFinalizarCompra from './BtnFinalizarCompra'
 import { useContext } from 'react'
 import { contexto } from './CartContext'
-
-import  { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Carrito = () => {
 
     const {carrito, precioTotal, eliminarProducto, vaciarCarrito} = useContext(contexto)
-    /*console.log('resultado')
-    console.log(resultado.carrito.title)
-    console.log(resultado)*/
 
-
-    ///const {carrito} = useContext(contexto)
-    
-    //recorrer array carrito e imprimir
-
-    // if carrito está vacío, que muestre un btn "anda a comprar" else  muestra el array
-
-    console.log('carrito en carrito = ')
-    console.log(carrito)
     return (
         
         <>
             { carrito.length
-                ? carrito.map(item => (
-                    console.log('item: '),
-                    console.log(item),                
-                        <div className='producto-carrito'>
+                ? carrito.map(item => (           
+                        <div className='producto-carrito' key={item.id}>
                             <h3>{item.title}</h3>
                             <img src={item.pictureUrl} alt={item.title} width="250" />
                             <p>Cantidad de productos: {item.cantidad}</p>
@@ -39,7 +24,7 @@ const Carrito = () => {
                     )
                 )
                 : <>
-                    <p>Tu carrito está vacío, <Link to="/">ve a comprar algo!</Link></p>
+                    <p className="padding-borde">Tu carrito está vacío, <Link to="/">ve a comprar algo!</Link></p>
                 </>
 
             }

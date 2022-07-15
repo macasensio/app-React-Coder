@@ -1,7 +1,5 @@
-
 import { useContext, useState } from "react"
 import { contexto } from './CartContext'
-
 import { db } from "../firebaseConfig.js"
 import { collection, addDoc, serverTimestamp } from "firebase/firestore"
 
@@ -18,14 +16,12 @@ const Checkout = () => {
             [name]: value
         })
     }
-    //console.log(data)
 
     const [idCompra, setIdCompra] = useState('')
 
     const handleSubmit = (e) => {
 
         e.preventDefault();
-        console.log('ejecutando handleSubmit')
         
         const orderData = {
             buyer: {
@@ -43,9 +39,7 @@ const Checkout = () => {
 
         consulta
             .then(resultado => {
-                console.log(resultado.id)
                 setIdCompra(resultado.id)
-                console.log(idCompra)
             })
             .catch(error => {
                 console.log(error)
@@ -56,12 +50,12 @@ const Checkout = () => {
 
     return (
         <>
-            { idCompra
-            ?<div>
+            {idCompra
+            ?<div className="padding-borde">
                 <p>Gracias por su compra!</p>
-                <p>Su número de orden es :{idCompra}</p>
+                <p>Su número de orden es :<b>{idCompra}</b></p>
             </div>
-            : <div>
+            : <div className="padding-borde">
                 <p>Total a pagar: € {precioTotal()}</p>
                 
                 <form onSubmit={handleSubmit}>
@@ -71,7 +65,8 @@ const Checkout = () => {
                             type="text"
                             name="nombre"
                             placeholder="Nombre..."
-                            value={data.nombre} />
+                            value={data.nombre}
+                            required />
                     </label>
                     <label>
                         <input
@@ -79,7 +74,8 @@ const Checkout = () => {
                             type="text"
                             name="email"
                             placeholder="Email..."
-                            value={data.email} />
+                            value={data.email}
+                            required />
                     </label>
                     <label>
                         <input
@@ -87,13 +83,15 @@ const Checkout = () => {
                                 type="text"
                                 name="telefono"
                                 placeholder="Teléfono..."
-                                value={data.telefono} />
+                                value={data.telefono}
+                                required />
                     </label>
-                    <button className="btn-proceder-compra">Pagarrrrrrrrrr</button>
+                    <button className="btn-proceder-compra">Pagar</button>
             </form>
-            </div>  }
+            </div>
+            }
         </>     
-)
+    )
 
 }
 

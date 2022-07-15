@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 
-
-const IrAlCarrito = () => {
-    
+const IrAlCarrito = () => {    
     return (
         <Link to="/carrito"><button className="btn-proceder-compra">Ir al carrito</button></Link>
     )

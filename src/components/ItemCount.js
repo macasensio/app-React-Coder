@@ -1,13 +1,7 @@
 import {useState} from 'react'
 
-import { useContext } from 'react'
-import { contexto } from './CartContext'
-
-import { useParams } from 'react-router-dom'
-
 const ItemCount = ({stock, initial, onAdd}) => { 
 
-    /* ----- STATE PRODUCTO ------ */
     const [contadorProducto, setContadorProducto] = useState(initial)
 
     const aumentarContador = () => {
@@ -23,7 +17,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
         }
     }
 
-    /* ----- STATE STOCK ------ */
+
     const [contadorStock, setContadorStock] = useState(stock)
 
     const reducirStock = () => {
@@ -37,26 +31,6 @@ const ItemCount = ({stock, initial, onAdd}) => {
             setContadorStock(contadorStock + 1)
         }
     }
-
-    /* ----- CONTEXT - AGREGAR PRODUCTO ------ */
-
-    //const { addItem } = useContext(contexto)
-    //console.log('resultado')
-    /*console.log(resultado.carrito)
-    console.log(resultado)*/
-    
-    /*const {id} = useParams()
-
-    const agregarAlCarrito = () => {
-        if (contadorProducto) {
-            console.log('id: '+ id)
-            console.log('contadorProducto: '+contadorProducto)
-            addItem(id, contadorProducto)
-        } else {
-            alert('debe elegir al menos 1 unidad del producto')
-        }
-    }*/
-
 
     return (
         <div>
